@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pranjal Hedau | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#e5e7eb;
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:70px 20px;
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    animation:fadeDown 1.2s ease;
+}
+
+.profile-pic{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    border:4px solid #fff;
+    object-fit:cover;
+    margin-bottom:20px;
+    animation:float 4s ease-in-out infinite;
+}
+
+header h1{
+    font-size:42px;
+    font-weight:600;
+}
+
+header p{
+    font-size:18px;
+    color:#dbeafe;
+    margin-top:8px;
+}
+
+/* NAV */
+nav{
+    background:#020617;
+    text-align:center;
+    padding:15px;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+nav a{
+    color:#93c5fd;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#fff;
+}
+
+/* SECTION */
+section{
+    max-width:1000px;
+    margin:auto;
+    padding:70px 20px;
+    animation:fadeUp 1.2s ease;
+}
+
+section h2{
+    font-size:32px;
+    color:#60a5fa;
+    margin-bottom:20px;
+}
+
+/* ABOUT */
+.about p{
+    font-size:17px;
+}
+
+/* CARDS */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#020617;
+    padding:25px;
+    border-radius:15px;
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,transparent,#2563eb,transparent);
+    opacity:0;
+    transition:0.4s;
+}
+
+.card:hover::before{
+    opacity:0.15;
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 15px 30px rgba(0,0,0,0.5);
+}
+
+.card h3{
+    color:#93c5fd;
+    margin-bottom:10px;
+}
+
+/* CONTACT */
+.contact-links a{
+    display:inline-block;
+    margin:12px 12px 0 0;
+    padding:12px 22px;
+    background:#2563eb;
+    color:white;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.contact-links a:hover{
+    background:#1e40af;
+    transform:scale(1.08);
+    box-shadow:0 0 15px rgba(37,99,235,0.8);
+}
+
+/* FOOTER */
+footer{
+    background:#020617;
+    text-align:center;
+    padding:20px;
+    font-size:14px;
+    color:#9ca3af;
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img class="profile-pic"
+         src="https://raw.githubusercontent.com/pranjalhedau/Assets-/main/1000287845.jpg"
+         alt="Pranjal Hedau">
+    <h1>Pranjal Hedau</h1>
+    <p>BTech CSE Student | Aspiring Software Engineer</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+        I am a 2nd semester BTech Computer Science Engineering student at Symbiosis Interantional University with a strong passion for
+        programming, web development, and problem-solving. I am building a solid foundation in
+        computer science fundamentals and actively working on projects to prepare for internships
+        and future software roles.
+    </p>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Programming</h3>
+            <p>C, Python, Basic C++</p>
+        </div>
+        <div class="card">
+            <h3>Web Development</h3>
+            <p>HTML, CSS</p>
+        </div>
+        <div class="card">
+            <h3>CS Fundamentals</h3>
+            <p>OS, DBMS (Basics), Computer Networks</p>
+        </div>
+        <div class="card">
+            <h3>Tools</h3>
+            <p>VS Code, Git & GitHub</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Portfolio Website</h3>
+            <p>Responsive personal portfolio using HTML & CSS</p>
+        </div>
+        <div class="card">
+            <h3>Student Result System</h3>
+            <p>C program for managing student results.</p>
+        </div>
+        <div class="card">
+            <h3>Menu Website for Restrarant</h3>
+            <p>Used HTML, CSS basics</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email me or connect with me:</p>
+
+    <div class="contact-links">
+        <a href="mailto:pranjalhedau@email.com">Email</a>
+        <a href="https://in.linkedin.com/in/pranjal-hedau-847478219" target="_blank">LinkedIn</a>
+        <a href="https://github.com/pranjalhedau" target="_blank">GitHub</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Pranjal Hedau | Built with ❤️ using HTML & CSS
+</footer>
+
+</body>
+</html>
