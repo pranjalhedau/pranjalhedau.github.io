@@ -13,6 +13,7 @@
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
 }
 
 body{
@@ -23,9 +24,8 @@ body{
 /* HEADER */
 header{
     text-align:center;
-    padding:70px 20px;
+    padding:80px 20px;
     background:linear-gradient(135deg,#2563eb,#1e40af);
-    animation:fadeDown 1.2s ease;
 }
 
 .profile-pic{
@@ -64,19 +64,37 @@ nav a{
     margin:0 15px;
     text-decoration:none;
     font-weight:500;
+    position:relative;
+}
+
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#60a5fa;
+    left:0;
+    bottom:-5px;
     transition:0.3s;
 }
 
-nav a:hover{
-    color:#fff;
+nav a:hover::after{
+    width:100%;
 }
 
 /* SECTION */
 section{
     max-width:1000px;
     margin:auto;
-    padding:70px 20px;
-    animation:fadeUp 1.2s ease;
+    padding:80px 20px;
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s ease;
+}
+
+section.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
 section h2{
@@ -90,20 +108,21 @@ section h2{
     font-size:17px;
 }
 
-/* CARDS */
+/* GRID */
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:25px;
 }
 
+/* CARD */
 .card{
     background:#020617;
     padding:25px;
-    border-radius:15px;
-    transition:0.4s;
+    border-radius:16px;
     position:relative;
     overflow:hidden;
+    transition:0.4s;
 }
 
 .card::before{
@@ -112,7 +131,6 @@ section h2{
     inset:0;
     background:linear-gradient(120deg,transparent,#2563eb,transparent);
     opacity:0;
-    transition:0.4s;
 }
 
 .card:hover::before{
@@ -120,8 +138,8 @@ section h2{
 }
 
 .card:hover{
-    transform:translateY(-12px) scale(1.03);
-    box-shadow:0 15px 30px rgba(0,0,0,0.5);
+    transform:translateY(-14px) scale(1.04);
+    box-shadow:0 20px 35px rgba(0,0,0,0.6);
 }
 
 .card h3{
@@ -144,8 +162,8 @@ section h2{
 
 .contact-links a:hover{
     background:#1e40af;
-    transform:scale(1.08);
-    box-shadow:0 0 15px rgba(37,99,235,0.8);
+    transform:scale(1.1);
+    box-shadow:0 0 20px rgba(37,99,235,0.8);
 }
 
 /* FOOTER */
@@ -158,19 +176,9 @@ footer{
 }
 
 /* ANIMATIONS */
-@keyframes fadeDown{
-    from{opacity:0;transform:translateY(-40px);}
-    to{opacity:1;transform:translateY(0);}
-}
-
-@keyframes fadeUp{
-    from{opacity:0;transform:translateY(40px);}
-    to{opacity:1;transform:translateY(0);}
-}
-
 @keyframes float{
     0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-12px);}
+    50%{transform:translateY(-14px);}
 }
 </style>
 </head>
@@ -182,7 +190,7 @@ footer{
          src="https://raw.githubusercontent.com/pranjalhedau/Assets-/main/1000287845.jpg"
          alt="Pranjal Hedau">
     <h1>Pranjal Hedau</h1>
-    <p>BTech CSE Student | Aspiring Software Engineer</p>
+    <p id="typing"></p>
 </header>
 
 <nav>
@@ -195,57 +203,34 @@ footer{
 <section id="about" class="about">
     <h2>About Me</h2>
     <p>
-        I am a 2nd semester BTech Computer Science Engineering student at Symbiosis Interantional University with a strong passion for
-        programming, web development, and problem-solving. I am building a solid foundation in
-        computer science fundamentals and actively working on projects to prepare for internships
-        and future software roles.
+        I am a 2nd semester BTech Computer Science Engineering student at Symbiosis International University
+        with a strong passion for programming, web development, and problem-solving. I am actively
+        building strong fundamentals and working on real-world projects.
     </p>
 </section>
 
 <section id="skills">
     <h2>Skills</h2>
     <div class="grid">
-        <div class="card">
-            <h3>Programming</h3>
-            <p>C, Python, Basic C++</p>
-        </div>
-        <div class="card">
-            <h3>Web Development</h3>
-            <p>HTML, CSS</p>
-        </div>
-        <div class="card">
-            <h3>CS Fundamentals</h3>
-            <p>OS, DBMS (Basics), Computer Networks</p>
-        </div>
-        <div class="card">
-            <h3>Tools</h3>
-            <p>VS Code, Git & GitHub</p>
-        </div>
+        <div class="card"><h3>Programming</h3><p>C, Python, Basic C++</p></div>
+        <div class="card"><h3>Web Development</h3><p>HTML, CSS</p></div>
+        <div class="card"><h3>CS Fundamentals</h3><p>OS, DBMS, Computer Networks</p></div>
+        <div class="card"><h3>Tools</h3><p>VS Code, Git & GitHub</p></div>
     </div>
 </section>
 
 <section id="projects">
     <h2>Projects</h2>
     <div class="grid">
-        <div class="card">
-            <h3>Portfolio Website</h3>
-            <p>Responsive personal portfolio using HTML & CSS</p>
-        </div>
-        <div class="card">
-            <h3>Student Result System</h3>
-            <p>C program for managing student results.</p>
-        </div>
-        <div class="card">
-            <h3>Menu Website for Restrarant</h3>
-            <p>Used HTML, CSS basics</p>
-        </div>
+        <div class="card"><h3>Portfolio Website</h3><p>Personal portfolio using HTML & CSS</p></div>
+        <div class="card"><h3>Student Result System</h3><p>C program for managing results</p></div>
+        <div class="card"><h3>Restaurant Menu Website</h3><p>HTML & CSS based static website</p></div>
     </div>
 </section>
 
 <section id="contact">
     <h2>Contact</h2>
     <p>Email me or connect with me:</p>
-
     <div class="contact-links">
         <a href="mailto:pranjalhedau@email.com">Email</a>
         <a href="https://in.linkedin.com/in/pranjal-hedau-847478219" target="_blank">LinkedIn</a>
@@ -257,5 +242,31 @@ footer{
     © 2026 Pranjal Hedau | Built with ❤️ using HTML & CSS
 </footer>
 
+<script>
+// Typing Effect
+const text = "BTech CSE Student | Aspiring Software Engineer";
+let i = 0;
+function type(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 70);
+    }
+}
+type();
+
+// Scroll reveal
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            sec.classList.add("show");
+        }
+    });
+});
+</script>
+
 </body>
 </html>
+
